@@ -1,0 +1,4 @@
+dependencies {
+    //Project Dependencies
+    compile project(':domain-model')
+}

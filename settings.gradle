@@ -1,2 +1,36 @@
 rootProject.name = 'job-search'
 
+FileTree buildFiles = fileTree(rootDir) {
+    List excludes = gradle.startParameter.projectProperties.get("excludeProjects")?.split(",")
+    include '**/*.gradle'
+    exclude '**/message-handlers/*.gradle', 'main.gradle','build', '**/gradle', 'settings.gradle', 'buildSrc', '/build.gradle', '.*', 'out'
+    if(excludes) {
+        exclude excludes
+    }
+}
+
+String rootDirPath = rootDir.absolutePath + File.separator
+buildFiles.each { File buildFile ->
+
+    boolean isDefaultName = 'build.gradle'.equals(buildFile.name)
+    if(isDefaultName) {
+//        String buildFilePath = buildFile.parentFile.absolutePath
+//        String projectPath = buildFilePath.replace(rootDirPath, '').replace(File.separator, ':')
+        String projectName = buildFile.parentFile.name
+        String projectPath = ':' + projectName;
+        include projectPath
+        def project = findProject("${projectPath}")
+        project.name = buildFile.parentFile.parentFile.name + '-' + projectName
+        project.projectDir = buildFile.parentFile
+        project.buildFileName = buildFile.name
+
+    } else {
+        String projectName = buildFile.name.replace('.gradle', '');
+        String projectPath = ':' + projectName;
+        include projectPath
+        def project = findProject("${projectPath}")
+        project.name = projectName
+        project.projectDir = buildFile.parentFile
+        project.buildFileName = buildFile.name
+    }
+}

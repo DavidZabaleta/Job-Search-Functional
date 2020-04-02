@@ -1,4 +1,4 @@
-package com.platzi.jobsearch;
+package com.platzi.jobsearch.usecase.functions;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class CommanderFunctions {
-    static <T> JCommander buildCommanderWithName(String cliName, Supplier<T> argumentSupplier) {
+    public static <T> JCommander buildCommanderWithName(String cliName, Supplier<T> argumentSupplier) {
         JCommander jCommander = JCommander.newBuilder()
                 .addObject(argumentSupplier.get())
                 .build();
@@ -20,7 +20,7 @@ public class CommanderFunctions {
         return jCommander;
     }
 
-    static Optional<List<Object>> parseArguments(
+    public static Optional<List<Object>> parseArguments(
             JCommander jCommander,
             String[] arguments,
             Consumer<JCommander> onError

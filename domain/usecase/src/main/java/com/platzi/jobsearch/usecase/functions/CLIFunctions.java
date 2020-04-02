@@ -1,4 +1,4 @@
-package com.platzi.jobsearch;
+package com.platzi.jobsearch.usecase.functions;
 
 import com.platzi.jobsearch.model.entities.CLIArguments;
 

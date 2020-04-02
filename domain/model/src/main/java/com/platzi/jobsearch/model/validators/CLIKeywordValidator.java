@@ -7,7 +7,7 @@ public class CLIKeywordValidator implements IParameterValidator {
 
     @Override
     public void validate(String name, String value) throws ParameterException {
-        if (!value.matches("^[a-zA-Z] + [0-9]*$")) {
+        if (!value.matches("^[a-zA-Z]+[0-9]*$")) {
             System.err.println("El criterio de busqueda no es valido.");
             throw new ParameterException("Unicamente letras y numeros");
         }

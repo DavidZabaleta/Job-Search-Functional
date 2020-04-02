@@ -1,4 +1,4 @@
-package com.platzi.jobsearch.api;
+package com.platzi.jobsearch.usecase.functions;
 
 import feign.Feign;
 import feign.gson.GsonDecoder;

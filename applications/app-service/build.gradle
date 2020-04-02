@@ -1,0 +1,11 @@
+apply plugin: 'application'
+
+application {
+    mainClassName = 'com.platzi.jobsearch.JobSearch'
+}
+
+dependencies {
+    //Project Dependencies
+    compile project(":domain-usecase")
+    compile project(":entry-points-api")
+}

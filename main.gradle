@@ -1,0 +1,23 @@
+subprojects {
+
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+
+        maven { url "https://repo1.maven.org/maven2/" }
+    }
+
+    dependencies {
+        compile group: 'com.beust', name: 'jcommander', version: '1.78'
+        compile group: 'io.github.openfeign', name: 'feign-core', version: '10.9'
+
+        //Test libraries
+        testCompile("org.junit.jupiter:junit-jupiter-api:${junitPlatformVersion}")
+        testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitPlatformVersion}")
+        testCompile("org.junit.jupiter:junit-jupiter-params:${junitPlatformVersion}")
+    }
+}

@@ -1,4 +1,4 @@
-package com.platzi.jobsearch.api;
+package com.platzi.jobsearch.api.interfaces;
 
 import com.platzi.jobsearch.model.entities.JobPosition;
 import feign.Headers;

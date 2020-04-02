@@ -2,9 +2,7 @@ package com.platzi.jobsearch;
 
 import com.beust.jcommander.JCommander;
 import com.platzi.jobsearch.api.APIHandler;
-import com.platzi.jobsearch.api.APIJobs;
 import com.platzi.jobsearch.model.entities.CLIArguments;
-import com.platzi.jobsearch.model.entities.JobPosition;
 import com.platzi.jobsearch.usecase.functions.CLIFunctions;
 
 import java.util.*;
@@ -33,5 +31,4 @@ public class JobSearch {
                 .orElse(Stream.empty())
                 .forEach(System.out::println);
     }
-
 }

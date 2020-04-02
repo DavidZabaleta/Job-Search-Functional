@@ -1,14 +1,9 @@
 package com.platzi.jobsearch.model.entities;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@Builder
 public class JobPosition {
     private String id;
     private String type;

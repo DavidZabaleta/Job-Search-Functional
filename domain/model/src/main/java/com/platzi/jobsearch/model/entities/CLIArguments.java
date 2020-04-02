@@ -1,19 +1,18 @@
 package com.platzi.jobsearch.model.entities;
 
 import com.beust.jcommander.Parameter;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.platzi.jobsearch.model.validators.CLIHelpValidator;
+import com.platzi.jobsearch.model.validators.CLIKeywordValidator;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class CLIArguments {
+    CLIArguments() {
+
+    }
+
     @Parameter(
             required = true,
             descriptionKey = "KEYWORD",
+            validateWith = CLIKeywordValidator.class,
             description = "KEYWORD"
     )
     private String keyword;
@@ -45,7 +44,48 @@ public class CLIArguments {
     @Parameter(
             names = "--help",
             help = true,
+            validateWith = CLIHelpValidator.class,
             description = "Mostrar la ayuda"
     )
     private boolean isHelp;
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public boolean isFullTime() {
+        return isFullTime;
+    }
+
+    public boolean isMarkDown() {
+        return isMarkDown;
+    }
+
+    public boolean isHelp() {
+        return isHelp;
+    }
+
+    @Override
+    public String toString() {
+        return "CLIArguments{" +
+                "keyword='" + keyword + '\'' +
+                ", location='" + location + '\'' +
+                ", page=" + page +
+                ", isFullTime=" + isFullTime +
+                ", isMarkDown=" + isMarkDown +
+                ", isHelp=" + isHelp +
+                '}';
+    }
+
+    public static CLIArguments newInstance() {
+        return new CLIArguments();
+    }
 }

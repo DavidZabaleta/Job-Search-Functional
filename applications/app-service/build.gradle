@@ -7,4 +7,5 @@ application {
 dependencies {
     //Project Dependencies
     compile project(":domain-usecase")
+    compile project(":entry-points-api")
 }
